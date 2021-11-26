@@ -14,4 +14,4 @@ Eg:
 IP: 38.33.25.444
 PORT: 8080
 
-If you like my repo, please give me a star. And you can go to https://wwww.jamviet.com !
+If you like my repo, please give me a star. And you can go to https://www.jamviet.com !
