@@ -1,0 +1,17 @@
+{
+  "name": "JamDev Proxy",
+  "version": "1.0.3",
+  "description": "Create proxy using Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --max-old-space-size=1000 index.js"
+  },
+  "author": "Jamviet.com",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy": "^1.11.1",
+    "net": "^1.0.2",
+    "public-ip": "^4.0.2",
+    "url": "^0.10.3"
+  }
+}
