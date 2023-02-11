@@ -1,6 +1,8 @@
 {
   "name": "jam_proxy",
   "version": "1.0.4",
+  "target": "node",
+  "type": "module",
   "description": "Create proxy using Nodejs",
   "main": "index.js",
   "scripts": {

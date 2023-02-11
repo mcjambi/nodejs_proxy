@@ -4,15 +4,14 @@
  */
 
 
-
-import { createProxyServer } from "http-proxy";
-import { createServer } from "http";
+import httpProxy from 'http-proxy';
+import {createServer} from "http";
 import { parse } from "url";
 import { Socket } from 'net';
-import { v4 } from 'public-ip';
+import { publicIpv4 } from 'public-ip';
 
 ( async () => {
-    var IP = await v4();
+    var IP = await publicIpv4();
     console.log(`Your IP: ${IP}`);
     console.log(`Your port: 8080`);
 })();
@@ -24,7 +23,7 @@ var server = createServer( async (req, res) => {
 
   console.log("Proxy HTTP request for:", target);
 
-  var proxy = createProxyServer({});
+  var proxy = httpProxy.createProxyServer({});
   proxy.on("error", function (err, req, res) {
     console.log("proxy error", err);
     res.end();
