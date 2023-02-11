@@ -1,6 +1,6 @@
 {
-  "name": "JamDev Proxy",
-  "version": "1.0.3",
+  "name": "jam_proxy",
+  "version": "1.0.4",
   "description": "Create proxy using Nodejs",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "dependencies": {
     "http-proxy": "^1.11.1",
     "net": "^1.0.2",
-    "public-ip": "^4.0.2",
-    "url": "^0.10.3"
+    "public-ip": "^6.0.1",
+    "url": "^0.11.0"
   }
 }

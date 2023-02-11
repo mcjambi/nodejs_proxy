@@ -5,26 +5,26 @@
 
 
 
-var httpProxy = require("http-proxy");
-var http = require("http");
-var url = require("url");
-var net = require('net');
-var publicIp = require('public-ip');
+import { createProxyServer } from "http-proxy";
+import { createServer } from "http";
+import { parse } from "url";
+import { Socket } from 'net';
+import { v4 } from 'public-ip';
 
 ( async () => {
-    var IP = await publicIp.v4();
+    var IP = await v4();
     console.log(`Your IP: ${IP}`);
     console.log(`Your port: 8080`);
 })();
 
 
-var server = http.createServer( async (req, res) => {
-    var urlObj = url.parse(req.url);
+var server = createServer( async (req, res) => {
+    var urlObj = parse(req.url);
     var target = urlObj.protocol + "//" + urlObj.host;
 
   console.log("Proxy HTTP request for:", target);
 
-  var proxy = httpProxy.createProxyServer({});
+  var proxy = createProxyServer({});
   proxy.on("error", function (err, req, res) {
     console.log("proxy error", err);
     res.end();
@@ -60,7 +60,7 @@ server.addListener('connect', function (req, socket, bodyhead) {
   var port = parseInt(hostPort[1]);
   console.log("Proxying HTTPS request for:", hostDomain, port);
 	
-  var proxySocket = new net.Socket();
+  var proxySocket = new Socket();
   proxySocket.connect(port, hostDomain, function () {
       proxySocket.write(bodyhead);
       socket.write("HTTP/" + req.httpVersion + " 200 Connection established\r\n\r\n");
